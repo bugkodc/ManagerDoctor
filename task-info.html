@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 735px;">
+
+<head>
+  <title>Manager Doctor</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.theme.min.css">
+  <link rel="stylesheet" href="assets/bootstrap-datepicker/css/datepicker.css">
+  <link rel="stylesheet" href="assets/bootstrap-datepicker/css/datepicker-custom.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/custom.js"></script>
+  <script src="assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+  <script src="assets/bootstrap-datepicker/js/datepicker-custom.js"></script>
+  <script type="text/javascript">
+
+    /* delete function confirmation  */
+    function check_delete() {
+      var check = confirm('Are you sure you want to delete this?');
+      if (check) {
+
+        return true;
+      } else {
+        return false;
+      }
+    }
+  </script>
+</head>
+
+<body style="height: 735px;">
+
+  <nav class="navbar navbar-inverse sidebar navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="task-info.html"><span
+            style="color: #d4ab3a; font-weight: bold;">ManaDoc</span></a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-nav-custom">
+          <li class="active"><a href="task-info.html">Phân công Bác Sĩ<span style="font-size:16px; color:#d4ab3a;"
+                class="pull-right hidden-xs showopacity glyphicon glyphicon-tasks"></span></a></li>
+          <li><a href="attendance-info.html">Quản lý Bác Sĩ <span style="font-size:16px; color:#d4ab3a;"
+                class="pull-right hidden-xs showopacity glyphicon glyphicon-calendar"></span></a></li>
+          <li><a href="manage-admin.html">Tài khoản<span style="font-size:16px; color:#d4ab3a;"
+                class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+          <li><a href="index.html">Thoát<span style="font-size:16px; color:#d4ab3a;"
+                class="pull-right hidden-xs showopacity glyphicon glyphicon-log-out"></span></a></li>
+        </ul>
+      </div>
+
+
+
+    </div>
+  </nav>
+
+
+
+  <div class="main">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog add-category-modal">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">X</button>
+            <h2 class="modal-title text-center">Thêm Công Việc</h2>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12">
+                <div role="form">
+                  <div class="form-horizontal">
+                    <div class="form-group">
+                      <label class="control-label col-sm-5">Tên Công Việc</label>
+                      <div class="col-sm-7">
+                        <input type="text" placeholder="Công Việc" id="task_title" name="task_title" list="expense"
+                          class="form-control" required="">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-5">Mô tả</label>
+                      <div class="col-sm-7">
+                        <textarea name="task_description" id="task_description" placeholder="Mô tả" class="form-control"
+                          rows="5" cols="5"></textarea>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-5">Thời gian bắt đầu</label>
+                      <div class="col-sm-7">
+                        <input type="text" name="t_start_time" id="t_start_time" class="form-control flatpickr-input"
+                          readonly="readonly">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-5">Thời gian kết thúc</label>
+                      <div class="col-sm-7">
+                        <input type="text" name="t_end_time" id="t_end_time" class="form-control flatpickr-input"
+                          readonly="readonly">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-5">Bác sĩ phụ trách</label>
+                      <div class="col-sm-7">
+                        <select class="form-control" name="assign_to" id="aassign_to" required="">
+                          <option value="">Bác sĩ...</option>
+
+                          <option value="17">Henry Gonzalez</option>
+                          <option value="18">Christine Randolph</option>
+                          <option value="19">Thomas Yorke</option>
+                          <option value="20">Elijah Jones</option>
+                          <option value="21">Jacob Miller</option>
+                          <option value="22">Isabella Moore</option>
+                          <option value="23">Harry Denn</option>
+                          <option value="24">Ava Anderson</option>
+                          <option value="25">Logan Smith</option>
+                          <option value="27">bugkodc</option>
+                        </select>
+                      </div>
+
+                    </div>
+                    <div class="form-group">
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-offset-3 col-sm-3">
+                        <button type="submit" name="add_task_post" class="btn btn-success-custom">Chấp nhận</button>
+                      </div>
+                      <div class="col-sm-3">
+                        <button type="submit" class="btn btn-danger-custom" data-dismiss="modal">Cancel</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="well well-custom">
+          <div class="gap"></div>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="btn-group">
+                <div class="btn-group">
+                  <button class="btn btn-warning btn-menu" data-toggle="modal" data-target="#myModal">Thêm Công
+                    Việc</button>
+                </div>
+
+              </div>
+
+            </div>
+
+
+          </div>
+          <center>
+            <h3>Lịch Phân Công</h3>
+          </center>
+          <div class="gap"></div>
+
+          <div class="gap"></div>
+
+          <div class="table-responsive">
+            <table class="table table-codensed table-custom">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Tên công việc</th>
+                  <th>Bác sĩ</th>
+                  <th>Thời gian bắt đầu</th>
+                  <th>Thời gian kết thúc</th>
+                  <th>Trạng thái</th>
+                  <th>Hoạt động</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr>
+                  <td>1</td>
+                  <td>Virtual Meeting</td>
+                  <td>Ava Anderson</td>
+                  <td>2021-03-22 15:00</td>
+                  <td>2021-03-22 15:20</td>
+                  <td>
+                    Chưa hoàn thành <span style="color:#d00909;" class=" glyphicon glyphicon-remove">
+                    </span></td>
+
+                  <td><a title="Update Task" href="edit-task.html?task_id=22"><span
+                        class="glyphicon glyphicon-edit"></span></a>&nbsp;&nbsp;
+                    <a title="View" href="task-details.html?task_id=22"><span
+                        class="glyphicon glyphicon-folder-open"></span></a>&nbsp;&nbsp;
+                    <a title="Delete" href="?delete_task=delete_task&amp;task_id=22"
+                      onclick=" return check_delete();"><span class="glyphicon glyphicon-trash"></span></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Filing</td>
+                  <td>Isabella Moore</td>
+                  <td>2021-03-22 10:00</td>
+                  <td>2021-03-22 15:10</td>
+                  <td>
+                    Chưa hoàn thành <span style="color:#d00909;" class=" glyphicon glyphicon-remove">
+                    </span></td>
+
+                  <td><a title="Update Task" href="edit-task.html?task_id=21"><span
+                        class="glyphicon glyphicon-edit"></span></a>&nbsp;&nbsp;
+                    <a title="View" href="task-details.html?task_id=21"><span
+                        class="glyphicon glyphicon-folder-open"></span></a>&nbsp;&nbsp;
+                    <a title="Delete" href="?delete_task=delete_task&amp;task_id=21"
+                      onclick=" return check_delete();"><span class="glyphicon glyphicon-trash"></span></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Communications</td>
+                  <td>Henry Gonzalez</td>
+                  <td>2021-03-22 12:00</td>
+                  <td>2021-03-22 13:00</td>
+                  <td>
+                    Hoàn thành <span style="color:#00af16;" class=" glyphicon glyphicon-ok">
+                    </span></td>
+
+                  <td><a title="Update Task" href="edit-task.html?task_id=20"><span
+                        class="glyphicon glyphicon-edit"></span></a>&nbsp;&nbsp;
+                    <a title="View" href="task-details.html?task_id=20"><span
+                        class="glyphicon glyphicon-folder-open"></span></a>&nbsp;&nbsp;
+                    <a title="Delete" href="?delete_task=delete_task&amp;task_id=20"
+                      onclick=" return check_delete();"><span class="glyphicon glyphicon-trash"></span></a>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div><!-- end of div.container-->
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+  <script type="text/javascript">
+    flatpickr('#t_start_time', {
+      enableTime: true
+    });
+
+    flatpickr('#t_end_time', {
+      enableTime: true
+    });
+
+  </script>
+  <div class="flatpickr-calendar hasTime animate" tabindex="-1">
+    <div class="flatpickr-months"><span class="flatpickr-prev-month"><svg version="1.1"
+          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17">
+          <g></g>
+          <path d="M5.207 8.471l7.146 7.147-0.707 0.707-7.853-7.854 7.854-7.853 0.707 0.707-7.147 7.146z"></path>
+        </svg></span>
+      <div class="flatpickr-month">
+        <div class="flatpickr-current-month"><select class="flatpickr-monthDropdown-months" aria-label="Month"
+            tabindex="-1">
+            <option class="flatpickr-monthDropdown-month" value="0" tabindex="-1">January</option>
+            <option class="flatpickr-monthDropdown-month" value="1" tabindex="-1">February</option>
+            <option class="flatpickr-monthDropdown-month" value="2" tabindex="-1">March</option>
+            <option class="flatpickr-monthDropdown-month" value="3" tabindex="-1">April</option>
+            <option class="flatpickr-monthDropdown-month" value="4" tabindex="-1">May</option>
+            <option class="flatpickr-monthDropdown-month" value="5" tabindex="-1">June</option>
+            <option class="flatpickr-monthDropdown-month" value="6" tabindex="-1">July</option>
+            <option class="flatpickr-monthDropdown-month" value="7" tabindex="-1">August</option>
+            <option class="flatpickr-monthDropdown-month" value="8" tabindex="-1">September</option>
+            <option class="flatpickr-monthDropdown-month" value="9" tabindex="-1">October</option>
+            <option class="flatpickr-monthDropdown-month" value="10" tabindex="-1">November</option>
+            <option class="flatpickr-monthDropdown-month" value="11" tabindex="-1">December</option>
+          </select>
+          <div class="numInputWrapper"><input class="numInput cur-year" type="number" tabindex="-1"
+              aria-label="Year"><span class="arrowUp"></span><span class="arrowDown"></span></div>
+        </div>
+      </div><span class="flatpickr-next-month"><svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17">
+          <g></g>
+          <path d="M13.207 8.472l-7.854 7.854-0.707-0.707 7.146-7.146-7.146-7.148 0.707-0.707 7.854 7.854z"></path>
+        </svg></span>
+    </div>
+    <div class="flatpickr-innerContainer">
+      <div class="flatpickr-rContainer">
+        <div class="flatpickr-weekdays">
+          <div class="flatpickr-weekdaycontainer">
+            <span class="flatpickr-weekday">
+              Sun</span><span class="flatpickr-weekday">Mon</span><span class="flatpickr-weekday">Tue</span><span
+              class="flatpickr-weekday">Wed</span><span class="flatpickr-weekday">Thu</span><span
+              class="flatpickr-weekday">Fri</span><span class="flatpickr-weekday">Sat
+            </span>
+          </div>
+        </div>
+        <div class="flatpickr-days" tabindex="-1">
+          <div class="dayContainer"><span class="flatpickr-day prevMonthDay" aria-label="October 29, 2023"
+              tabindex="-1">29</span><span class="flatpickr-day prevMonthDay" aria-label="October 30, 2023"
+              tabindex="-1">30</span><span class="flatpickr-day prevMonthDay" aria-label="October 31, 2023"
+              tabindex="-1">31</span><span class="flatpickr-day" aria-label="November 1, 2023"
+              tabindex="-1">1</span><span class="flatpickr-day" aria-label="November 2, 2023"
+              tabindex="-1">2</span><span class="flatpickr-day" aria-label="November 3, 2023"
+              tabindex="-1">3</span><span class="flatpickr-day" aria-label="November 4, 2023"
+              tabindex="-1">4</span><span class="flatpickr-day" aria-label="November 5, 2023"
+              tabindex="-1">5</span><span class="flatpickr-day" aria-label="November 6, 2023"
+              tabindex="-1">6</span><span class="flatpickr-day" aria-label="November 7, 2023"
+              tabindex="-1">7</span><span class="flatpickr-day" aria-label="November 8, 2023"
+              tabindex="-1">8</span><span class="flatpickr-day" aria-label="November 9, 2023"
+              tabindex="-1">9</span><span class="flatpickr-day" aria-label="November 10, 2023"
+              tabindex="-1">10</span><span class="flatpickr-day" aria-label="November 11, 2023"
+              tabindex="-1">11</span><span class="flatpickr-day" aria-label="November 12, 2023"
+              tabindex="-1">12</span><span class="flatpickr-day" aria-label="November 13, 2023"
+              tabindex="-1">13</span><span class="flatpickr-day" aria-label="November 14, 2023"
+              tabindex="-1">14</span><span class="flatpickr-day today" aria-label="November 15, 2023"
+              aria-current="date" tabindex="-1">15</span><span class="flatpickr-day" aria-label="November 16, 2023"
+              tabindex="-1">16</span><span class="flatpickr-day" aria-label="November 17, 2023"
+              tabindex="-1">17</span><span class="flatpickr-day" aria-label="November 18, 2023"
+              tabindex="-1">18</span><span class="flatpickr-day" aria-label="November 19, 2023"
+              tabindex="-1">19</span><span class="flatpickr-day" aria-label="November 20, 2023"
+              tabindex="-1">20</span><span class="flatpickr-day" aria-label="November 21, 2023"
+              tabindex="-1">21</span><span class="flatpickr-day" aria-label="November 22, 2023"
+              tabindex="-1">22</span><span class="flatpickr-day" aria-label="November 23, 2023"
+              tabindex="-1">23</span><span class="flatpickr-day" aria-label="November 24, 2023"
+              tabindex="-1">24</span><span class="flatpickr-day" aria-label="November 25, 2023"
+              tabindex="-1">25</span><span class="flatpickr-day" aria-label="November 26, 2023"
+              tabindex="-1">26</span><span class="flatpickr-day" aria-label="November 27, 2023"
+              tabindex="-1">27</span><span class="flatpickr-day" aria-label="November 28, 2023"
+              tabindex="-1">28</span><span class="flatpickr-day" aria-label="November 29, 2023"
+              tabindex="-1">29</span><span class="flatpickr-day" aria-label="November 30, 2023"
+              tabindex="-1">30</span><span class="flatpickr-day nextMonthDay" aria-label="December 1, 2023"
+              tabindex="-1">1</span><span class="flatpickr-day nextMonthDay" aria-label="December 2, 2023"
+              tabindex="-1">2</span><span class="flatpickr-day nextMonthDay" aria-label="December 3, 2023"
+              tabindex="-1">3</span><span class="flatpickr-day nextMonthDay" aria-label="December 4, 2023"
+              tabindex="-1">4</span><span class="flatpickr-day nextMonthDay" aria-label="December 5, 2023"
+              tabindex="-1">5</span><span class="flatpickr-day nextMonthDay" aria-label="December 6, 2023"
+              tabindex="-1">6</span><span class="flatpickr-day nextMonthDay" aria-label="December 7, 2023"
+              tabindex="-1">7</span><span class="flatpickr-day nextMonthDay" aria-label="December 8, 2023"
+              tabindex="-1">8</span><span class="flatpickr-day nextMonthDay" aria-label="December 9, 2023"
+              tabindex="-1">9</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="flatpickr-time" tabindex="-1">
+      <div class="numInputWrapper"><input class="numInput flatpickr-hour" type="number" aria-label="Hour" tabindex="-1"
+          step="1" min="1" max="12" maxlength="2"><span class="arrowUp"></span><span class="arrowDown"></span></div>
+      <span class="flatpickr-time-separator">:</span>
+      <div class="numInputWrapper"><input class="numInput flatpickr-minute" type="number" aria-label="Minute"
+          tabindex="-1" step="5" min="0" max="59" maxlength="2"><span class="arrowUp"></span><span
+          class="arrowDown"></span></div><span class="flatpickr-am-pm" title="Click to toggle" tabindex="-1">PM</span>
+    </div>
+  </div>
+  <div class="flatpickr-calendar hasTime animate" tabindex="-1">
+    <div class="flatpickr-months"><span class="flatpickr-prev-month"><svg version="1.1"
+          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17">
+          <g></g>
+          <path d="M5.207 8.471l7.146 7.147-0.707 0.707-7.853-7.854 7.854-7.853 0.707 0.707-7.147 7.146z"></path>
+        </svg></span>
+      <div class="flatpickr-month">
+        <div class="flatpickr-current-month"><select class="flatpickr-monthDropdown-months" aria-label="Month"
+            tabindex="-1">
+            <option class="flatpickr-monthDropdown-month" value="0" tabindex="-1">January</option>
+            <option class="flatpickr-monthDropdown-month" value="1" tabindex="-1">February</option>
+            <option class="flatpickr-monthDropdown-month" value="2" tabindex="-1">March</option>
+            <option class="flatpickr-monthDropdown-month" value="3" tabindex="-1">April</option>
+            <option class="flatpickr-monthDropdown-month" value="4" tabindex="-1">May</option>
+            <option class="flatpickr-monthDropdown-month" value="5" tabindex="-1">June</option>
+            <option class="flatpickr-monthDropdown-month" value="6" tabindex="-1">July</option>
+            <option class="flatpickr-monthDropdown-month" value="7" tabindex="-1">August</option>
+            <option class="flatpickr-monthDropdown-month" value="8" tabindex="-1">September</option>
+            <option class="flatpickr-monthDropdown-month" value="9" tabindex="-1">October</option>
+            <option class="flatpickr-monthDropdown-month" value="10" tabindex="-1">November</option>
+            <option class="flatpickr-monthDropdown-month" value="11" tabindex="-1">December</option>
+          </select>
+          <div class="numInputWrapper"><input class="numInput cur-year" type="number" tabindex="-1"
+              aria-label="Year"><span class="arrowUp"></span><span class="arrowDown"></span></div>
+        </div>
+      </div><span class="flatpickr-next-month"><svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17">
+          <g></g>
+          <path d="M13.207 8.472l-7.854 7.854-0.707-0.707 7.146-7.146-7.146-7.148 0.707-0.707 7.854 7.854z"></path>
+        </svg></span>
+    </div>
+    <div class="flatpickr-innerContainer">
+      <div class="flatpickr-rContainer">
+        <div class="flatpickr-weekdays">
+          <div class="flatpickr-weekdaycontainer">
+            <span class="flatpickr-weekday">
+              Sun</span><span class="flatpickr-weekday">Mon</span><span class="flatpickr-weekday">Tue</span><span
+              class="flatpickr-weekday">Wed</span><span class="flatpickr-weekday">Thu</span><span
+              class="flatpickr-weekday">Fri</span><span class="flatpickr-weekday">Sat
+            </span>
+          </div>
+        </div>
+        <div class="flatpickr-days" tabindex="-1">
+          <div class="dayContainer"><span class="flatpickr-day prevMonthDay" aria-label="October 29, 2023"
+              tabindex="-1">29</span><span class="flatpickr-day prevMonthDay" aria-label="October 30, 2023"
+              tabindex="-1">30</span><span class="flatpickr-day prevMonthDay" aria-label="October 31, 2023"
+              tabindex="-1">31</span><span class="flatpickr-day" aria-label="November 1, 2023"
+              tabindex="-1">1</span><span class="flatpickr-day" aria-label="November 2, 2023"
+              tabindex="-1">2</span><span class="flatpickr-day" aria-label="November 3, 2023"
+              tabindex="-1">3</span><span class="flatpickr-day" aria-label="November 4, 2023"
+              tabindex="-1">4</span><span class="flatpickr-day" aria-label="November 5, 2023"
+              tabindex="-1">5</span><span class="flatpickr-day" aria-label="November 6, 2023"
+              tabindex="-1">6</span><span class="flatpickr-day" aria-label="November 7, 2023"
+              tabindex="-1">7</span><span class="flatpickr-day" aria-label="November 8, 2023"
+              tabindex="-1">8</span><span class="flatpickr-day" aria-label="November 9, 2023"
+              tabindex="-1">9</span><span class="flatpickr-day" aria-label="November 10, 2023"
+              tabindex="-1">10</span><span class="flatpickr-day" aria-label="November 11, 2023"
+              tabindex="-1">11</span><span class="flatpickr-day" aria-label="November 12, 2023"
+              tabindex="-1">12</span><span class="flatpickr-day" aria-label="November 13, 2023"
+              tabindex="-1">13</span><span class="flatpickr-day" aria-label="November 14, 2023"
+              tabindex="-1">14</span><span class="flatpickr-day today" aria-label="November 15, 2023"
+              aria-current="date" tabindex="-1">15</span><span class="flatpickr-day" aria-label="November 16, 2023"
+              tabindex="-1">16</span><span class="flatpickr-day" aria-label="November 17, 2023"
+              tabindex="-1">17</span><span class="flatpickr-day" aria-label="November 18, 2023"
+              tabindex="-1">18</span><span class="flatpickr-day" aria-label="November 19, 2023"
+              tabindex="-1">19</span><span class="flatpickr-day" aria-label="November 20, 2023"
+              tabindex="-1">20</span><span class="flatpickr-day" aria-label="November 21, 2023"
+              tabindex="-1">21</span><span class="flatpickr-day" aria-label="November 22, 2023"
+              tabindex="-1">22</span><span class="flatpickr-day" aria-label="November 23, 2023"
+              tabindex="-1">23</span><span class="flatpickr-day" aria-label="November 24, 2023"
+              tabindex="-1">24</span><span class="flatpickr-day" aria-label="November 25, 2023"
+              tabindex="-1">25</span><span class="flatpickr-day" aria-label="November 26, 2023"
+              tabindex="-1">26</span><span class="flatpickr-day" aria-label="November 27, 2023"
+              tabindex="-1">27</span><span class="flatpickr-day" aria-label="November 28, 2023"
+              tabindex="-1">28</span><span class="flatpickr-day" aria-label="November 29, 2023"
+              tabindex="-1">29</span><span class="flatpickr-day" aria-label="November 30, 2023"
+              tabindex="-1">30</span><span class="flatpickr-day nextMonthDay" aria-label="December 1, 2023"
+              tabindex="-1">1</span><span class="flatpickr-day nextMonthDay" aria-label="December 2, 2023"
+              tabindex="-1">2</span><span class="flatpickr-day nextMonthDay" aria-label="December 3, 2023"
+              tabindex="-1">3</span><span class="flatpickr-day nextMonthDay" aria-label="December 4, 2023"
+              tabindex="-1">4</span><span class="flatpickr-day nextMonthDay" aria-label="December 5, 2023"
+              tabindex="-1">5</span><span class="flatpickr-day nextMonthDay" aria-label="December 6, 2023"
+              tabindex="-1">6</span><span class="flatpickr-day nextMonthDay" aria-label="December 7, 2023"
+              tabindex="-1">7</span><span class="flatpickr-day nextMonthDay" aria-label="December 8, 2023"
+              tabindex="-1">8</span><span class="flatpickr-day nextMonthDay" aria-label="December 9, 2023"
+              tabindex="-1">9</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="flatpickr-time" tabindex="-1">
+      <div class="numInputWrapper"><input class="numInput flatpickr-hour" type="number" aria-label="Hour" tabindex="-1"
+          step="1" min="1" max="12" maxlength="2"><span class="arrowUp"></span><span class="arrowDown"></span></div>
+      <span class="flatpickr-time-separator">:</span>
+      <div class="numInputWrapper"><input class="numInput flatpickr-minute" type="number" aria-label="Minute"
+          tabindex="-1" step="5" min="0" max="59" maxlength="2"><span class="arrowUp"></span><span
+          class="arrowDown"></span></div><span class="flatpickr-am-pm" title="Click to toggle" tabindex="-1">PM</span>
+    </div>
+  </div>
+</body>
+
+</html>
