@@ -37,7 +37,6 @@
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
-         
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -49,12 +48,10 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-nav-custom">
-          <li class="active"><a href="task-info.html">Phân công Bác Sĩ<span style="font-size:16px; color:#d4ab3a;"
+          <li class="active"><a href="task-info-user.html">Lịch Phân công<span style="font-size:16px; color:#d4ab3a;"
                 class="pull-right hidden-xs showopacity glyphicon glyphicon-tasks"></span></a></li>
-          <li><a href="attendance-info.html">Quản lý Bác Sĩ <span style="font-size:16px; color:#d4ab3a;"
+          <li><a href="attendance-info-user.html">Lịch khám<span style="font-size:16px; color:#d4ab3a;"
                 class="pull-right hidden-xs showopacity glyphicon glyphicon-calendar"></span></a></li>
-          <li><a href="manage-admin.html">Tài khoản<span style="font-size:16px; color:#d4ab3a;"
-                class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
           <li><a href="index.html">Thoát<span style="font-size:16px; color:#d4ab3a;"
                 class="pull-right hidden-xs showopacity glyphicon glyphicon-log-out"></span></a></li>
         </ul>
@@ -64,9 +61,6 @@
 
     </div>
   </nav>
-
-
-
   <div class="main">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
@@ -101,7 +95,6 @@
                   <th>thời gian kết thúc</th>
                   <th>Tổng thời gian</th>
                   <th>Trạng thái</th>
-                  <th>Hoạt động</th>
                 </tr>
               </thead>
               <tbody>
@@ -118,11 +111,7 @@
                       <input type="hidden" name="aten_id" value="44">
                       <button type="submit" name="add_punch_out" class="btn btn-danger btn-xs rounded">Hết giờ</button>
                     </div>
-                  </td>
-                  <td>
-                    <a title="Delete" href="?delete_attendance=delete_attendance&amp;aten_id=44"
-                      onclick=" return check_delete();"><span class="glyphicon glyphicon-trash"></span></a>
-                  </td>
+                  </td> 
                 </tr>
                 <tr>
                   <td>2</td>
@@ -136,10 +125,6 @@
                       <input type="hidden" name="aten_id" value="41">
                       <button type="submit" name="add_punch_out" class="btn btn-danger btn-xs rounded">Hết giờ</button>
                     </div>
-                  </td>
-                  <td>
-                    <a title="Delete" href="?delete_attendance=delete_attendance&amp;aten_id=41"
-                      onclick=" return check_delete();"><span class="glyphicon glyphicon-trash"></span></a>
                   </td>
                 </tr>
                 <tr>
@@ -155,10 +140,6 @@
                       <button type="submit" name="add_punch_out" class="btn btn-danger btn-xs rounded">Hết giờ</button>
                     </div>
                   </td>
-                  <td>
-                    <a title="Delete" href="?delete_attendance=delete_attendance&amp;aten_id=40"
-                      onclick=" return check_delete();"><span class="glyphicon glyphicon-trash"></span></a>
-                  </td>
                 </tr>
                 <tr>
                   <td>4</td>
@@ -172,10 +153,6 @@
                       <input type="hidden" name="aten_id" value="39">
                       <button type="submit" name="add_punch_out" class="btn btn-danger btn-xs rounded">Hết giờ</button>
                     </div>
-                  </td>
-                  <td>
-                    <a title="Delete" href="?delete_attendance=delete_attendance&amp;aten_id=39"
-                      onclick=" return check_delete();"><span class="glyphicon glyphicon-trash"></span></a>
                   </td>
                 </tr>
                 <tr>
@@ -191,10 +168,6 @@
                       <button type="submit" name="add_punch_out" class="btn btn-danger btn-xs rounded">Hết giờ</button>
                     </div>
                   </td>
-                  <td>
-                    <a title="Delete" href="?delete_attendance=delete_attendance&amp;aten_id=38"
-                      onclick=" return check_delete();"><span class="glyphicon glyphicon-trash"></span></a>
-                  </td>
                 </tr>
                 <tr>
                   <td>6</td>
@@ -209,10 +182,6 @@
                       <button type="submit" name="add_punch_out" class="btn btn-danger btn-xs rounded">Hết giờ</button>
                     </div>
                   </td>
-                  <td>
-                    <a title="Delete" href="?delete_attendance=delete_attendance&amp;aten_id=37"
-                      onclick=" return check_delete();"><span class="glyphicon glyphicon-trash"></span></a>
-                  </td>
                 </tr>
                 <tr>
                   <td>7</td>
@@ -226,10 +195,6 @@
                       <input type="hidden" name="aten_id" value="35">
                       <button type="submit" name="add_punch_out" class="btn btn-danger btn-xs rounded">Hết giờ</button>
                     </div>
-                  </td>
-                  <td>
-                    <a title="Delete" href="?delete_attendance=delete_attendance&amp;aten_id=35"
-                      onclick=" return check_delete();"><span class="glyphicon glyphicon-trash"></span></a>
                   </td>
                 </tr>
               </tbody>
