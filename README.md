@@ -9,15 +9,13 @@ B3 : Kick vào go live dưới gốc phải màng hình
 Yêu cầu :  
  - Đã cài visual studio code
  - Đã cài Go live
-```
-  + Cách 2 : Chạy bằng xampp
++ Cách 2 : Chạy bằng xampp
 ```
 B1 : Mở xampp
 B2 : copy thư mục ManagerDoctor vào trong C:\xampp\htdocs
 B3 : chạy link sau : http://localhost/ManagerDoctor
 Yêu càu :
   - Đã cài xampp
-```
 + Cách 3 : Chạy bằng github 
 ```
 link github : https://github.com/bugkodc/ManagerDoctor.git
@@ -44,17 +42,14 @@ link github.io : https://bugkodc.github.io/ManagerDoctor/
 ![Logo](https://scontent.fdad1-2.fna.fbcdn.net/v/t1.15752-9/370247275_24106503918998183_907510780577453540_n.png?_nc_cat=102&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=JWvNDGiVrkwAX-TeDzE&_nc_ht=scontent.fdad1-2.fna&cb_e2o_trans=q&oh=03_AdT_MKuS6QVgN1YFhJtxg-giA24716YA7EMNN_9vp0ukwA&oe=657E623D)
 + Xem dữ liệu 
 ![Logo](https://scontent.fdad1-3.fna.fbcdn.net/v/t1.15752-9/371069161_1520740822019255_6783726720988976924_n.png?_nc_cat=104&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=79RmInrdPLcAX-WchEL&_nc_ht=scontent.fdad1-3.fna&cb_e2o_trans=q&oh=03_AdS_lxIUq97CSrSbXMhz5I6yd2MOLYsRNNfQZ4XARMY-7A&oe=657E868B)
-```
 ## Reponsive 
 ``` 
 + Desktop và Tablet: @media (min-width: 769px)
 ![Logo](https://scontent.fdad1-4.fna.fbcdn.net/v/t1.15752-9/377151188_1390265635250941_7009050378243637071_n.png?_nc_cat=103&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=CMJPgxhIS34AX-_i-Ut&_nc_ht=scontent.fdad1-4.fna&cb_e2o_trans=q&oh=03_AdSopN_3gndFHJIV6MGD74QfIWhb950oxQXJYmV890Hq-w&oe=657E7B1C)
 + Mobile  : (max-width: 768px)
 ![Logo](https://scontent.fdad2-1.fna.fbcdn.net/v/t1.15752-9/377126332_7596838700379958_8326048491850412406_n.png?_nc_cat=107&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=xgnVtD04fB8AX-RqtYj&_nc_ht=scontent.fdad2-1.fna&cb_e2o_trans=q&oh=03_AdQ6HajaZzR4fLWE7oKteMmnZLG90Lq2O-o4YPv7GgqnSg&oe=657E7F5C)
-```
 ## Code đã sử dụng 
 ```
 + HTML,css,bootstrap,js
 + github
 + github.io (gitpage)
- ```
