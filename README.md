@@ -9,15 +9,15 @@ B3 : Kick vào go live dưới gốc phải màng hình
 Yêu cầu :  
  - Đã cài visual studio code
  - Đã cài Go live
+ ```
 + Cách 2 : Chạy bằng xampp
-```
 B1 : Mở xampp
 B2 : copy thư mục ManagerDoctor vào trong C:\xampp\htdocs
 B3 : chạy link sau : http://localhost/ManagerDoctor
 Yêu càu :
   - Đã cài xampp
-+ Cách 3 : Chạy bằng github 
 ```
++ Cách 3 : Chạy bằng github 
 link github : https://github.com/bugkodc/ManagerDoctor.git
 link github.io : https://bugkodc.github.io/ManagerDoctor/
 ```
